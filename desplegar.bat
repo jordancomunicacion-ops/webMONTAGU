@@ -12,7 +12,7 @@ echo [2/4] Connecting to server and pulling changes...
 ssh root@%SERVER_IP% "if [ ! -d %PROJECT_DIR% ]; then git clone %REPO_URL% %PROJECT_DIR%; fi; cd %PROJECT_DIR% && git pull origin main"
 
 echo [3/4] Rebuilding and Restarting containers...
-ssh root@%SERVER_IP% "cd %PROJECT_DIR% && docker-compose up -d --build"
+ssh root@%SERVER_IP% "cd %PROJECT_DIR% && docker compose up -d --build"
 
 echo [4/4] Deployment complete! Visit https://www.montaguoriginals.com
 pause

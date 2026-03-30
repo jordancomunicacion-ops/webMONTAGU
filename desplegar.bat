@@ -11,8 +11,8 @@ git push origin main
 echo [2/4] Conectando al servidor y actualizando código...
 ssh root@%SERVER_IP% "if [ ! -d %PROJECT_DIR% ]; then git clone %REPO_URL% %PROJECT_DIR%; fi; cd %PROJECT_DIR% && git pull origin main"
 
-echo [3/4] Reconstruyendo y Reiniciando contenedores (Docker)...
-ssh root@%SERVER_IP% "cd %PROJECT_DIR% && docker compose up -d --build"
+echo [3/4] Limpiando espacio y reiniciando contenedores...
+ssh root@%SERVER_IP% "docker system prune -af --volumes && cd %PROJECT_DIR% && docker compose up -d --build"
 
 echo [4/4] ¡Despliegue completado! Visita https://www.montaguoriginals.com
 pause

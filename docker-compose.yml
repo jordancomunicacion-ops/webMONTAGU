@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  montagu-web:
+    build: .
+    container_name: montagu-web
+    restart: always
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.montagu.rule=Host(`www.montaguoriginals.com`) || Host(`montaguoriginals.com`)"
+      - "traefik.http.routers.montagu.entrypoints=websecure"
+      - "traefik.http.routers.montagu.tls.certresolver=myresolver"
+      - "traefik.http.services.montagu.loadbalancer.server.port=80"
+
+networks:
+  web:
+    external: true

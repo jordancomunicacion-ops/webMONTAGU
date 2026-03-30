@@ -11,8 +11,10 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.montagu-web.rule=Host(`www.montaguoriginals.com`) || Host(`montaguoriginals.com`)"
       - "traefik.http.routers.montagu-web.entrypoints=websecure"
+      - "traefik.http.routers.montagu-web.tls=true"
       - "traefik.http.routers.montagu-web.tls.certresolver=le"
       - "traefik.http.services.montagu-web.loadbalancer.server.port=80"
+      - "traefik.docker.network=proxy-net"
 
 networks:
   proxy-net:

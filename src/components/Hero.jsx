@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './Hero.css';
 
 // Importing assets
-import loungeBg from '../assets/montagu_final_master.png';
+import loungeBg from '../assets/montagu_final_v2.png';
 import burgerImg from '../assets/uploaded_media_3_1774862966758.jpg';
 import meltImg from '../assets/uploaded_media_0_1774862966758.jpg';
 import hotdogImg from '../assets/uploaded_media_1_1774862966758.jpg'; // Placeholder for hotdog if not specific, but I'll use another burger variant

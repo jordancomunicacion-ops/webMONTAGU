@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap');
 
 :root {
-  --bg-color: #050505;
+  --bg-color: #021a11;
   --primary-gold: #D4AF37;
   --accent-pink: #FF007F;
-  --accent-green: #1B4D3E;
+  --accent-cyan: #00F2FF; /* New Electric Cyan accent */
+  --accent-green: #004D33;
   --accent-blue: #00E5FF;
   --text-white: #FFFFFF;
-  --text-muted: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.85);
   
   --font-serif: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
@@ -59,11 +60,11 @@ section {
 }
 
 .neon-text-pink {
-  text-shadow: 0 0 10px var(--accent-pink), 0 0 20px var(--accent-pink);
+  text-shadow: 0 0 10px var(--accent-pink), 0 0 20px var(--accent-pink), 0 0 30px rgba(255, 0, 127, 0.5);
 }
 
-.neon-text-blue {
-  text-shadow: 0 0 10px var(--accent-blue), 0 0 20px var(--accent-blue);
+.neon-text-cyan {
+  text-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan), 0 0 30px rgba(0, 242, 255, 0.5);
 }
 
 .gold-text {

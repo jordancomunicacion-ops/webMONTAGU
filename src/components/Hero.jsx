@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './Hero.css';
 
 // Importing assets
-import loungeBg from '../assets/montagu_lounge_background_1774863362479.png';
+import loungeBg from '../assets/montagu_final_master.png';
 import burgerImg from '../assets/uploaded_media_3_1774862966758.jpg';
 import meltImg from '../assets/uploaded_media_0_1774862966758.jpg';
 import hotdogImg from '../assets/uploaded_media_1_1774862966758.jpg'; // Placeholder for hotdog if not specific, but I'll use another burger variant
@@ -78,6 +78,8 @@ const Hero = () => {
       </div>
 
       <div className="neon-sign neon-pink">Eat Like Royalty</div>
+      <div className="neon-sign neon-cyan secondary">No Sandwich No Party</div>
+      <div className="neon-sign neon-pink-crown-glow"></div>
       <div className="neon-sign neon-blue">Rebel Taste</div>
 
       <div className="hero-content">

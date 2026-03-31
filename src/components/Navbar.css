@@ -10,9 +10,9 @@
 
 .navbar.scrolled {
   padding: 15px 5%;
-  background: rgba(5, 5, 5, 0.9);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  background: rgba(2, 26, 17, 0.95); /* New Deep Green */
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .nav-container {
@@ -61,8 +61,16 @@
   color: var(--accent-pink);
 }
 
+.nav-links a:nth-child(even):hover {
+  color: var(--accent-cyan);
+}
+
 .nav-links a:hover::after {
   width: 100%;
+}
+
+.nav-links a:nth-child(even):hover::after {
+  background: var(--accent-cyan);
 }
 
 .book-btn {

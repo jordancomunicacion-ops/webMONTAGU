@@ -1,6 +1,8 @@
 .reservations-section {
   padding: 120px 5%;
-  background-color: var(--accent-green);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/montagu_final_final.png');
+  background-size: cover;
+  background-position: center;
   position: relative;
   overflow: hidden;
 }

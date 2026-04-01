@@ -14,7 +14,7 @@
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: center 85%; /* Pushing image UP to show more of the bottom and crop the top */
+  background-position: center 30%; /* Move image DOWN to hide table and crop bottom frame */
   opacity: 1;
   z-index: -1;
 }

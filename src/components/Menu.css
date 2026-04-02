@@ -130,7 +130,7 @@
 @media (max-width: 900px) {
   .menu-mirror {
     grid-template-columns: 1fr;
-    gap: 60px;
+    gap: 40px;
   }
 
   .menu-col--right {
@@ -145,5 +145,39 @@
   .item-text--right {
     text-align: left;
     align-items: flex-start;
+  }
+  
+  .section-header h2 {
+    font-size: 2.8rem;
+    letter-spacing: 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu-section {
+    padding: 60px 5%;
+  }
+  .section-header {
+    margin-bottom: 40px;
+  }
+  .section-header h2 {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+  }
+  .category-title {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+  }
+  .item-food-wrap {
+    width: 90px;
+    height: 75px;
+  }
+  .item-graffiti {
+    max-width: 150px;
+    max-height: 45px;
+  }
+  .item-desc {
+    font-size: 0.85rem;
   }
 }

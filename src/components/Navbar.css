@@ -193,7 +193,46 @@
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    padding: 15px 5%;
+  }
   .nav-links {
     display: none;
+  }
+  .nav-logo {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+  .book-btn {
+    padding: 0 12px;
+    font-size: 0.75rem;
+    height: 34px;
+  }
+  .nav-social-btn {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 4%;
+  }
+  .nav-logo {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+  .nav-actions {
+    gap: 8px;
+  }
+  .nav-social-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  .book-btn {
+    padding: 0 8px;
+    font-size: 0.7rem;
+    height: 30px;
   }
 }

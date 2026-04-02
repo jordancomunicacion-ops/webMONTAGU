@@ -74,10 +74,10 @@ const Navbar = ({ onDeliveryOpen }) => {
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="nav-social-btn">
             <Facebook size={16} />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="nav-social-btn">
+          <a href="https://www.instagram.com/montagu_burgers/" target="_blank" rel="noopener noreferrer" className="nav-social-btn">
             <Instagram size={16} />
           </a>
-          <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="nav-social-btn">
+          <a href="https://www.tiktok.com/@montagu_sandwich" target="_blank" rel="noopener noreferrer" className="nav-social-btn">
             <TikTokIcon />
           </a>
         </div>

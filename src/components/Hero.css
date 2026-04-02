@@ -230,4 +230,35 @@
   }
   .graffiti-link.left { left: 15%; }
   .graffiti-link.right { right: 15%; }
+  
+  .masterpiece-logo {
+    font-size: 5rem !important;
+  }
+  
+  .masterpiece-subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .graffiti-link {
+    width: 140px;
+  }
+  .graffiti-link.left { left: 22%; }
+  .graffiti-link.right { right: 22%; }
+  
+  .masterpiece-logo {
+    font-size: 3.5rem !important;
+  }
+  
+  .masterpiece-subtitle {
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    margin-top: -5px;
+  }
+  
+  .hero-content {
+    bottom: 15%;
+  }
 }

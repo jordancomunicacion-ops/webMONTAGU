@@ -3,15 +3,14 @@ import { motion } from 'framer-motion';
 import './Hero.css';
 
 // Importing assets
-import loungeBg from '../assets/montagu_hero_new.jpg';
+import loungeBg from '../assets/montagu_hero_clean.png';
 
 const Hero = () => {
-  
-  const labels = [
-    { id: 'carta', text: 'Carta', pos: { top: '30%', left: '15%' } },
-    { id: 'reservas', text: 'Reservas', pos: { top: '45%', left: '78%' } },
-    { id: 'delivery', text: 'Delivery', pos: { top: '65%', left: '20%' } },
-    { id: 'historia', text: 'Historia', pos: { top: '75%', left: '72%' } },
+  const graffitiTags = [
+    { id: 'carta', text: 'CARTA', color: 'cyan', pos: { top: '25%', left: '15%' }, rotate: '-12deg' },
+    { id: 'reservas', text: 'RESERVAS', color: 'pink', pos: { top: '35%', right: '15%' }, rotate: '15deg' },
+    { id: 'delivery', text: 'DELIVERY', color: 'pink', pos: { bottom: '25%', left: '12%' }, rotate: '8deg' },
+    { id: 'historia', text: 'HISTORIA', color: 'cyan', pos: { bottom: '30%', right: '18%' }, rotate: '-5deg' },
   ];
 
   return (
@@ -20,37 +19,39 @@ const Hero = () => {
         <div className="overlay"></div>
       </div>
       
-      <div className="product-container">
-
-        {labels.map((label) => (
+      <div className="graffiti-container">
+        {graffitiTags.map((tag) => (
           <motion.a
-            key={label.id}
-            href={`#${label.id}`}
-            className="interactive-label"
-            style={label.pos}
-            whileHover={{ scale: 1.1 }}
+            key={tag.id}
+            href={`#${tag.id}`}
+            className={`graffiti-button tag-${tag.color}`}
+            style={{ ...tag.pos, transform: `rotate(${tag.rotate})` }}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.15, textShadow: `0 0 20px var(--accent-${tag.color})` }}
+            transition={{ type: "spring", stiffness: 300 }}
           >
-            <span className="label-dot"></span>
-            <span className="label-text">{label.text}</span>
+            {tag.text}
+            <div className="drip-effect"></div>
           </motion.a>
         ))}
       </div>
 
-      <div className="neon-sign neon-pink">Eat Like Royalty</div>
-      <div className="neon-sign neon-cyan secondary">No Sandwich No Party</div>
-      <div className="neon-sign neon-pink-crown-glow"></div>
-      <div className="neon-sign neon-blue">Rebel Taste</div>
-
       <div className="hero-content">
-        <motion.h1 
-          className="gold-text"
-          animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-          transition={{ duration: 5, repeat: Infinity }}
-          style={{ backgroundSize: '200% auto' }}
+        <motion.div 
+          className="hero-logo-container"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5 }}
         >
-          MONTAGU
-        </motion.h1>
+          <h1 className="gold-text masterpiece-logo">MONTAGU</h1>
+          <p className="masterpiece-subtitle">EST. 2024 • THE ORIGINAL REBEL</p>
+        </motion.div>
       </div>
+
+      {/* Decorative Neon Signs */}
+      <div className="neon-sign neon-pink-glow small">Eat Like Royalty</div>
+      <div className="neon-sign neon-cyan-glow small right">No Sandwich No Party</div>
     </section>
   );
 };

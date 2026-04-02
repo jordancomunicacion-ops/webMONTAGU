@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Rock+Salt&display=swap');
+
 .hero {
   position: relative;
+  height: 100vh;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--bg-color);
+  overflow: hidden;
   z-index: 1;
 }
 
@@ -14,8 +19,7 @@
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: center 30%; /* Move image DOWN to hide table and crop bottom frame */
-  opacity: 1;
+  background-position: center 30%; /* User preferred framing */
   z-index: -1;
 }
 
@@ -29,119 +33,133 @@
   z-index: 1;
 }
 
-.product-container {
-  position: relative;
-  width: 800px;
-  height: 800px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.graffiti-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
 }
 
-
-.interactive-label {
+.graffiti-button {
   position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3.5rem;
   text-decoration: none;
-  z-index: 3;
   cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+  user-select: none;
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
 }
 
-.label-dot {
-  width: 8px;
-  height: 8px;
-  background-color: var(--accent-pink);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--accent-pink);
+.tag-cyan {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan);
 }
 
-.label-text {
-  font-family: var(--font-serif);
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--text-white);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  border-bottom: 2px solid transparent;
-  transition: var(--transition-smooth);
-}
-
-.interactive-label:hover .label-text {
-  color: var(--accent-blue);
-  border-bottom-color: var(--accent-blue);
-  text-shadow: 0 0 15px var(--accent-blue);
-}
-
-.neon-sign {
-  position: absolute;
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  z-index: 2;
-}
-
-.neon-pink {
-  top: 12%;
-  right: 18%;
+.tag-pink {
   color: var(--accent-pink);
-  text-shadow: 0 0 10px var(--accent-pink), 0 0 40px var(--accent-pink);
-  transform: rotate(3deg);
-  font-size: 2rem;
+  text-shadow: 0 0 10px var(--accent-pink), 0 0 20px var(--accent-pink);
 }
 
-.neon-cyan {
-  top: 25%;
-  left: 15%;
-  color: var(--accent-cyan);
-  text-shadow: 0 0 10px var(--accent-cyan), 0 0 40px var(--accent-cyan);
-  transform: rotate(-3deg);
-  font-size: 1.5rem;
-  opacity: 0.8;
+.graffiti-button:hover {
+  filter: brightness(1.2) drop-shadow(0 0 30px currentColor);
 }
 
-.neon-pink-crown-glow {
-  top: 20%;
+/* Drip Effect */
+.graffiti-button::after {
+  content: '';
+  position: absolute;
+  top: 90%;
   left: 20%;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, var(--accent-pink) 0%, transparent 60%);
-  opacity: 0.15;
-  filter: blur(30px);
+  width: 4px;
+  height: 0;
+  background: currentColor;
+  border-radius: 0 0 4px 4px;
+  opacity: 0.8;
+  transition: height 0.5s ease-out;
 }
 
-.neon-blue {
-  bottom: 15%;
-  left: 12%;
-  color: var(--accent-cyan);
-  text-shadow: 0 0 10px var(--accent-cyan), 0 0 30px var(--accent-cyan);
-  transform: rotate(-5deg);
-  font-size: 1.2rem;
+.graffiti-button:hover::after {
+  height: 60px;
+  box-shadow: 0 0 15px currentColor;
+}
+
+/* Secondary Drip */
+.graffiti-button::before {
+  content: '';
+  position: absolute;
+  top: 90%;
+  right: 30%;
+  width: 3px;
+  height: 0;
+  background: currentColor;
+  border-radius: 0 0 4px 4px;
+  opacity: 0.6;
+  transition: height 0.7s ease-out 0.1s;
+}
+
+.graffiti-button:hover::before {
+  height: 40px;
+  box-shadow: 0 0 10px currentColor;
 }
 
 .hero-content {
   position: absolute;
-  bottom: 10%;
+  bottom: 12%;
+  z-index: 10;
   text-align: center;
-  z-index: 2;
 }
 
-.hero-content h1 {
-  font-size: 6rem;
+.masterpiece-logo {
+  font-size: 8rem !important;
   margin-bottom: 0;
+  letter-spacing: -2px;
+  background: linear-gradient(180deg, var(--primary-gold) 0%, #8a6d3b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.8));
 }
 
-.hero-content p {
-  font-size: 1rem;
-  letter-spacing: 5px;
+.masterpiece-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  letter-spacing: 8px;
   color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: -10px;
+}
+
+.neon-sign {
+  position: absolute;
+  font-family: 'Rock Salt', cursive;
+  font-size: 1.2rem;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.neon-pink-glow {
+  top: 15%;
+  right: 10%;
+  color: var(--accent-pink);
+  transform: rotate(15deg);
+}
+
+.neon-cyan-glow {
+  top: 20%;
+  left: 8%;
+  color: var(--accent-cyan);
+  transform: rotate(-10deg);
 }
 
 @media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 3rem;
+  .graffiti-button {
+    font-size: 2rem;
   }
-
+  .masterpiece-logo {
+    font-size: 4rem !important;
+  }
 }

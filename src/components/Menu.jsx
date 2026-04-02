@@ -1,23 +1,18 @@
 import React from 'react';
 import './Menu.css';
 
-// Import media
-import burger1 from '../assets/uploaded_media_1_1774862966758.jpg';
-import burger2 from '../assets/uploaded_media_2_1774862966758.jpg';
-import burger3 from '../assets/uploaded_media_3_1774862966758.jpg';
-
 const menuItems = [
   {
     category: 'BURGERS',
     items: [
-      { name: 'THE ARISTOCRAT', price: '16€', desc: 'Aged beef, truffle cream, gold leaf finish.', img: burger1 },
-      { name: 'REBEL SMASH', price: '14€', desc: 'Double patty, neon sauce, jalapeño kick.', img: burger3 },
+      { name: 'THE ARISTOCRAT', price: '16€', desc: 'Aged beef, truffle cream, gold leaf finish.' },
+      { name: 'REBEL SMASH', price: '14€', desc: 'Double patty, neon sauce, jalapeño kick.' },
     ]
   },
   {
     category: 'MELTS',
     items: [
-      { name: 'PULLED ROYALTY', price: '15€', desc: 'Slow-cooked pork, cheddar melt, brioche toast.', img: burger2 },
+      { name: 'PULLED ROYALTY', price: '15€', desc: 'Slow-cooked pork, cheddar melt, brioche toast.' },
     ]
   }
 ];
@@ -33,20 +28,16 @@ const Menu = () => {
       <div className="menu-grid">
         {menuItems.map((cat) => (
           <div key={cat.category} className="menu-category">
-            <h3 className="gold-text">{cat.category}</h3>
-            <div className="items-list">
+            <h3 className="category-title">{cat.category}</h3>
+            <div className="items-list-classic">
               {cat.items.map((item) => (
-                <div key={item.name} className="menu-item">
-                  <div className="item-img-wrapper">
-                    <img src={item.img} alt={item.name} />
+                <div key={item.name} className="menu-item-classic">
+                  <div className="item-main-row">
+                    <h4 className="item-name">{item.name}</h4>
+                    <div className="item-line"></div>
+                    <span className="item-price">{item.price}</span>
                   </div>
-                  <div className="item-info">
-                    <div className="item-title">
-                      <h4>{item.name}</h4>
-                      <span className="price">{item.price}</span>
-                    </div>
-                    <p>{item.desc}</p>
-                  </div>
+                  <p className="item-desc">{item.desc}</p>
                 </div>
               ))}
             </div>

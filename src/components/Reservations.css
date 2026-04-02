@@ -1,6 +1,6 @@
 .reservations-section {
   padding: 120px 5%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/montagu_final_final.png');
+  background-image: url('../assets/montagu_final_final.png');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -22,7 +22,7 @@
   max-width: 600px;
   margin: 0 auto;
   z-index: 1;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.3);
   padding: 60px;
   border: 1px solid var(--primary-gold);
   backdrop-filter: blur(10px);
@@ -55,12 +55,19 @@
   letter-spacing: 2px;
   outline: none;
   transition: var(--transition-smooth);
+  color-scheme: dark;
+}
+
+.res-form input::placeholder {
+  color: white;
+  opacity: 1;
 }
 
 .res-form input:focus {
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+  border-color: var(--accent-pink);
+  box-shadow: 0 0 10px rgba(255, 0, 127, 0.2);
 }
+
 
 .form-row {
   display: grid;
@@ -81,9 +88,9 @@
 }
 
 .res-button:hover {
-  background: var(--accent-blue);
+  background: #db006d; /* Darker pink for hover depth */
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 229, 255, 0.3);
+  box-shadow: 0 10px 20px rgba(255, 0, 127, 0.3);
 }
 
 .res-note {

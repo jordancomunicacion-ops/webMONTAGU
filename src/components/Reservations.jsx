@@ -6,7 +6,7 @@ const Reservations = () => {
     <section id="reservas" className="reservations-section">
       <div className="reservations-container">
         <div className="res-header">
-          <h2 className="neon-text-blue">Reservas</h2>
+          <h2 className="neon-text-pink">Reservas</h2>
           <p className="gold-text">BECOME ROYALTY.</p>
         </div>
         

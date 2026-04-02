@@ -120,6 +120,7 @@
   letter-spacing: -2px;
   background: linear-gradient(180deg, var(--primary-gold) 0%, #8a6d3b 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 4px 10px rgba(0,0,0,0.8));
 }
@@ -155,11 +156,56 @@
   transform: rotate(-10deg);
 }
 
+.graffiti-nav-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.graffiti-link {
+  position: absolute;
+  width: 420px; /* Increased to overlap frame and wall better */
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+.graffiti-link.left {
+  left: 10%; /* Adjust to overlap frame edge */
+  transform: translateX(-50%) rotate(-5deg);
+}
+
+.graffiti-link.right {
+  right: 10%; /* Adjust to overlap frame edge */
+  transform: translateX(50%) rotate(5deg);
+}
+
+.graffiti-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.9;
+  filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.7)); /* Tight shadow, keeps it glued to the wall */
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 1200px) {
+  .graffiti-link {
+    width: 320px;
+  }
+}
+
 @media (max-width: 768px) {
-  .graffiti-button {
-    font-size: 2rem;
+  .graffiti-link {
+    width: 200px;
   }
-  .masterpiece-logo {
-    font-size: 4rem !important;
-  }
+  .graffiti-link.left { left: 15%; }
+  .graffiti-link.right { right: 15%; }
 }

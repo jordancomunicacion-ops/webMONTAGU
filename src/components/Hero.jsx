@@ -9,7 +9,7 @@ import graffitiReservas from '../assets/Reservas.png';
 import graffitiDelivery from '../assets/Delivery.png';
 import graffitiHistoria from '../assets/Historia.png';
 
-const Hero = () => {
+const Hero = ({ onDeliveryOpen }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Hero = () => {
     { id: 'carta', img: graffitiCarta, side: 'left', top: 'calc(22% - 120px)', href: '#carta', glow: 'var(--accent-cyan)', rotate: -8 },
     { id: 'historia', img: graffitiHistoria, side: 'left', top: '53%', href: '#historia', glow: 'var(--accent-pink)', rotate: 5 },
     { id: 'reservas', img: graffitiReservas, side: 'right', top: 'calc(22% - 120px)', href: '#reservas', glow: 'var(--accent-pink)', rotate: 8 },
-    { id: 'delivery', img: graffitiDelivery, side: 'right', top: '53%', href: '#delivery', glow: 'var(--accent-yellow)', rotate: -5 },
+    { id: 'delivery', img: graffitiDelivery, side: 'right', top: '53%', href: null, onClick: onDeliveryOpen, glow: 'var(--accent-yellow)', rotate: -5 },
   ];
 
   return (
@@ -39,7 +39,8 @@ const Hero = () => {
             {graffitiButtons.map((btn, index) => (
               <motion.a
                 key={btn.id}
-                href={btn.href}
+                href={btn.href || undefined}
+                onClick={btn.onClick ? (e) => { e.preventDefault(); btn.onClick(); } : undefined}
                 className={`graffiti-link ${btn.side}`}
                 style={{ 
                   top: btn.top, 

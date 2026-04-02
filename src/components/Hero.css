@@ -173,7 +173,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.05s ease;
   transform-origin: center;
 }
 
@@ -187,13 +187,35 @@
   transform: translateX(50%) rotate(5deg);
 }
 
+@keyframes bulb-flicker {
+  0%   { opacity: 1;    filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.7)) brightness(1.5); }
+  5%   { opacity: 0.4;  filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.7)) brightness(0.6); }
+  10%  { opacity: 1;    filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.7)) brightness(1.8); }
+  15%  { opacity: 0.5;  filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.7)) brightness(0.7); }
+  20%  { opacity: 1;    filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.7)) brightness(2);   }
+  25%  { opacity: 0.7;  filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.7)) brightness(0.9); }
+  30%  { opacity: 1;    filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.7)) brightness(1.6); }
+  40%  { opacity: 0.3;  filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.7)) brightness(0.5); }
+  45%  { opacity: 1;    filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.7)) brightness(2.2); }
+  55%  { opacity: 0.8;  filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.7)) brightness(1.2); }
+  65%  { opacity: 0.2;  filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.7)) brightness(0.4); }
+  70%  { opacity: 1;    filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.7)) brightness(2);   }
+  80%  { opacity: 0.6;  filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.7)) brightness(0.8); }
+  90%  { opacity: 1;    filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.7)) brightness(1.7); }
+  100% { opacity: 1;    filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.7)) brightness(1.5); }
+}
+
 .graffiti-img {
   width: 100%;
   height: auto;
   display: block;
   opacity: 0.9;
-  filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.7)); /* Tight shadow, keeps it glued to the wall */
-  transition: all 0.3s ease;
+  filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.7));
+  transition: opacity 0.05s ease, filter 0.05s ease;
+}
+
+.graffiti-link:hover .graffiti-img {
+  animation: bulb-flicker 0.6s steps(1, end) forwards;
 }
 
 @media (max-width: 1200px) {

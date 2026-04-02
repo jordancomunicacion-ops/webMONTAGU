@@ -1,29 +1,66 @@
 import React from 'react';
 import './Delivery.css';
+import glovoLogo from '../assets/glovo.png';
+import uberEatsLogo from '../assets/uber eats.png';
 
-const Delivery = () => {
+const Delivery = ({ isOpen, setIsOpen }) => {
   const platforms = [
-    { name: 'GLOVO', color: '#ffc043' },
-    { name: 'UBEREATS', color: '#06c167' },
-    { name: 'JUSTEAT', color: '#f3113c' }
+    {
+      name: 'GLOVO',
+      color: '#ffc043',
+      url: 'https://glovoapp.com/es/es/pamplona/stores/montagu-pamplona',
+      logo: glovoLogo,
+    },
+    {
+      name: 'UBER EATS',
+      color: '#06c167',
+      url: 'https://ubereats.com',
+      logo: uberEatsLogo,
+    },
   ];
 
   return (
-    <section id="delivery" className="delivery-section">
-      <div className="delivery-container">
-        <h2 className="neon-text-pink">Delivery</h2>
-        <p className="gold-text">THE REBELLION AT YOUR DOORSTEP.</p>
-        
-        <div className="platform-grid">
-          {platforms.map((p) => (
-            <a key={p.name} href="#" className="platform-card" style={{ '--hover-color': p.color }}>
-              <span className="platform-name">{p.name}</span>
-              <div className="glow-bar"></div>
-            </a>
-          ))}
+    <>
+      {/* Modal overlay */}
+      {isOpen && (
+        <div
+          className="delivery-overlay"
+          onClick={() => setIsOpen(false)}
+        >
+          <div
+            className="delivery-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="delivery-close"
+              onClick={() => setIsOpen(false)}
+              aria-label="Cerrar"
+            >
+              ✕
+            </button>
+
+            <h3 className="delivery-title-text modal-title-text">DELIVERY</h3>
+
+            <div className="modal-platform-grid">
+              {platforms.map((p) => (
+                <a
+                  key={p.name}
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="modal-platform-card"
+                  style={{ '--hover-color': p.color }}
+                >
+                  <img src={p.logo} alt={p.name} className="modal-platform-logo" />
+                  <span className="modal-platform-name">{p.name}</span>
+                  <div className="modal-glow-bar" />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      )}
+    </>
   );
 };
 

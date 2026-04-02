@@ -11,6 +11,7 @@
   
   --font-header: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
   
   --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -64,6 +65,10 @@ section {
 
 .neon-text-cyan {
   text-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan), 0 0 30px rgba(0, 242, 255, 0.5);
+}
+
+.neon-text-blue {
+  text-shadow: 0 0 10px var(--accent-blue), 0 0 20px var(--accent-blue), 0 0 30px rgba(0, 229, 255, 0.5);
 }
 
 .gold-text {

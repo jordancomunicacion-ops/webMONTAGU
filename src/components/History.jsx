@@ -10,22 +10,18 @@ const History = () => {
     <section id="historia" className="history-section">
       <div className="history-container">
         <div className="history-content">
-          <h2 className="gold-text">Nuestra Historia</h2>
+          <h2>Nuestra Historia</h2>
           <div className="narrative">
             <p className="highlight">TRADITION MEETS REBELLION.</p>
-            <p>
-              In the heart of London, an aristocrat once traded his silver spoon for a neon spray can. 
+            <p className="narrative-script">
+              Montagu nace como el alter ego de SOTO del PRIOR. Si Soto del Prior representa la esencia rural, Montagu es su alma puramente urbanita.
             </p>
-            <p>
-              MONTAGU was born from the clash between 18th-century English elegance and the raw energy of urban street culture. We don't just serve food; we serve a manifesto of flavor. 
-            </p>
-            <p>
-              Join the royalty of the streets. Eat like a lord, live like a rebel.
+            <p className="narrative-script last-para">
+              Desde la excelencia absoluta del producto, buscamos reinterpretar comidas clásicas y recetas canónicas, presentándolas entre pan y pan como un acto de rebeldía e innovación constante, pero siempre respetando el alma de los grandes platos.
             </p>
           </div>
-          <div className="history-badges">
-            <div className="badge neon-text-pink">Est. 2024</div>
-            <div className="badge neon-text-blue">Rebel Heart</div>
+          <div className="history-footer">
+            <span className="signature">Montagu</span>
           </div>
         </div>
         

@@ -14,33 +14,57 @@
 }
 
 .history-content h2 {
-  font-size: 4rem;
+  font-family: var(--font-serif);
+  font-size: 4.5rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: #B5A028;
+  text-shadow: none;
   margin-bottom: 40px;
+  text-transform: uppercase;
 }
 
 .narrative {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
+  max-width: 580px;
 }
 
-.narrative p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--text-muted);
+.narrative p.narrative-script {
+  font-family: 'Pinyon Script', cursive !important;
+  font-size: 2.2rem !important;
+  line-height: 1.4 !important;
+  color: #fff !important;
+  margin-bottom: 5px;
+  letter-spacing: 0.5px;
+}
+
+.history-footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end; /* This ensures the signature stays right-aligned */
+  align-items: center;
+  max-width: 580px;
+}
+
+.signature {
+  font-family: 'Mrs Saint Delafield', cursive !important;
+  font-size: 4.5rem !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  color: #fff !important;
+  text-shadow: none !important;
 }
 
 .narrative p.highlight {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   color: var(--accent-pink);
   font-weight: 700;
-}
-
-.history-badges {
-  margin-top: 40px;
-  display: flex;
-  gap: 30px;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .badge {
@@ -101,8 +125,10 @@
     grid-template-columns: 1fr;
     text-align: center;
   }
-  .history-badges {
+  .history-footer {
     justify-content: center;
+    gap: 40px;
+    margin: 30px auto 0;
   }
   .portrait-stack {
     width: 300px;

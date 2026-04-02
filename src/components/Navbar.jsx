@@ -16,7 +16,7 @@ import graffitiDelivery from '../assets/Delivery.png';
 import graffitiHistoria from '../assets/Historia.png';
 import logoMontagu from '../assets/montagu_logo_crown.png';
 
-const Navbar = () => {
+const Navbar = ({ onDeliveryOpen }) => {
   const [scrolled, setScrolled] = useState(false);
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
   useEffect(() => {
@@ -30,7 +30,7 @@ const Navbar = () => {
   const navLinks = [
     { id: 'carta', img: graffitiCarta, href: '#carta', glow: 'var(--accent-cyan)' },
     { id: 'reservas', img: graffitiReservas, href: '#reservas', glow: 'var(--accent-pink)' },
-    { id: 'delivery', img: graffitiDelivery, href: '#delivery', glow: 'var(--accent-yellow)' },
+    { id: 'delivery', img: graffitiDelivery, href: null, onClick: onDeliveryOpen, glow: 'var(--accent-yellow)' },
     { id: 'historia', img: graffitiHistoria, href: '#historia', glow: 'var(--accent-pink)' },
   ];
 
@@ -53,7 +53,8 @@ const Navbar = () => {
               {navLinks.map((link) => (
                 <a 
                   key={link.id} 
-                  href={link.href} 
+                  href={link.href || undefined}
+                  onClick={link.onClick ? (e) => { e.preventDefault(); link.onClick(); } : undefined}
                   className="nav-graffiti-link"
                   style={{ '--glow-color': link.glow }}
                 >

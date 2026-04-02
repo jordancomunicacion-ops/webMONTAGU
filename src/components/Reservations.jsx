@@ -7,7 +7,7 @@ const Reservations = () => {
       <div className="reservations-container">
         <div className="res-header">
           <h2 className="neon-text-pink">Reservas</h2>
-          <p className="gold-text">BECOME ROYALTY.</p>
+          <p className="gold-text">RECLAMA TU LUGAR EN LA MESA.</p>
         </div>
         
         <form className="res-form" onSubmit={(e) => e.preventDefault()}>

@@ -7,10 +7,10 @@ import loungeBg from '../assets/montagu_hero_clean.png';
 
 const Hero = () => {
   const graffitiTags = [
-    { id: 'carta', text: 'CARTA', color: 'cyan', pos: { top: '25%', left: '15%' }, rotate: '-12deg' },
-    { id: 'reservas', text: 'RESERVAS', color: 'pink', pos: { top: '35%', right: '15%' }, rotate: '15deg' },
-    { id: 'delivery', text: 'DELIVERY', color: 'pink', pos: { bottom: '25%', left: '12%' }, rotate: '8deg' },
-    { id: 'historia', text: 'HISTORIA', color: 'cyan', pos: { bottom: '30%', right: '18%' }, rotate: '-5deg' },
+    { id: 'carta', text: 'CARTA', color: 'cyan', pos: { top: '18%', left: '10%' }, rotate: '-12deg' },
+    { id: 'reservas', text: 'RESERVAS', color: 'pink', pos: { top: '22%', right: '12%' }, rotate: '15deg' },
+    { id: 'delivery', text: 'DELIVERY', color: 'pink', pos: { bottom: '42%', left: '8%' }, rotate: '8deg' },
+    { id: 'historia', text: 'HISTORIA', color: 'cyan', pos: { bottom: '48%', right: '15%' }, rotate: '-5deg' },
   ];
 
   return (

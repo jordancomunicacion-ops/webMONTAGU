@@ -192,6 +192,17 @@
   color: black;
 }
 
+.nav-logo-img {
+  height: 84px;
+  width: auto;
+  display: block;
+  transition: var(--transition-smooth);
+}
+
+.navbar.scrolled .nav-logo-img {
+  height: 60px;
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 15px 5%;
@@ -199,9 +210,8 @@
   .nav-links {
     display: none;
   }
-  .nav-logo {
-    font-size: 1.5rem;
-    letter-spacing: 2px;
+  .nav-logo-img {
+    height: 50px;
   }
   .book-btn {
     padding: 0 12px;
@@ -218,9 +228,8 @@
   .navbar {
     padding: 10px 4%;
   }
-  .nav-logo {
-    font-size: 1.2rem;
-    letter-spacing: 1px;
+  .nav-logo-img {
+    height: 40px;
   }
   .nav-actions {
     gap: 8px;

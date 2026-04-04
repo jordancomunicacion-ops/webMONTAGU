@@ -21,28 +21,21 @@
 
 /* ── Mirror container ── */
 .menu-mirror {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Category Headers */
+.menu-categories-header {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: start;
-  gap: 0 60px;
-  max-width: 1400px;
-  margin: 0 auto;
+  gap: 20px;
+  margin-bottom: 40px;
 }
 
-/* ── Text columns ── */
-.menu-col {
-  padding-top: 20px;
-}
-
-.menu-col--left {
-  text-align: left;
-}
-
-.menu-col--right {
-  text-align: right;
-}
-
-/* ── Category title ── */
 .category-title {
   font-family: 'Playfair Display', serif;
   font-size: 2.2rem;
@@ -52,21 +45,51 @@
   text-shadow: none;
   border-bottom: 2px solid #B5A028;
   display: inline-block;
-  margin-bottom: 40px;
+  width: fit-content;
 }
+
+.menu-categories-header h3:last-child {
+  justify-self: end;
+}
+
+/* ── Row Layout ── */
+.menu-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+  position: relative;
+}
+
+/* ── Item Containers ── */
+.menu-item-container {
+  display: flex;
+  position: relative;
+}
+
+.burger-side {
+  justify-content: flex-start;
+}
+
+.melt-side {
+  justify-content: flex-end;
+}
+
+/* ── Alternating Stacking (The Magic) ── */
+/* Odd Rows: Burger over Melt */
+.menu-row:nth-child(odd) .burger-side { z-index: 10; }
+.menu-row:nth-child(odd) .melt-side   { z-index: 5; }
+
+/* Even Rows: Melt over Burger */
+.menu-row:nth-child(even) .burger-side { z-index: 5; }
+.menu-row:nth-child(even) .melt-side   { z-index: 10; }
 
 /* ── Items ── */
-.items-list-classic {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .menu-item-classic {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 16px;
+  width: 100%;
 }
 
 .menu-item-classic--right {
@@ -74,7 +97,7 @@
   justify-content: flex-end;
 }
 
-/* Text block within item */
+/* Text block */
 .item-text {
   display: flex;
   flex-direction: column;
@@ -87,14 +110,35 @@
   align-items: flex-end;
 }
 
-/* Food photo per item */
+/* Food photo painting style */
 .item-food-wrap {
   flex-shrink: 0;
-  width: 110px;
-  height: 90px;
-  border-radius: 10px;
+  width: 160px;
+  height: 130px;
+  border-radius: 2px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  position: relative;
+  
+  border: 4px solid #B5A028;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.9);
+  
+  transition: all 0.3s ease;
+}
+
+/* Superposición sutil */
+.burger-side .item-food-wrap {
+  margin-right: -25px;
+  transform: rotate(-4deg);
+}
+
+.melt-side .item-food-wrap {
+  margin-left: -25px;
+  transform: rotate(4deg);
+}
+
+.menu-item-classic:hover .item-food-wrap {
+  /* No transform or z-index change on hover as requested */
+  box-shadow: 0 20px 60px rgba(0,0,0,1); /* Just a subtle shadow boost if any, or keep it the same */
 }
 
 .item-food-img {
@@ -104,14 +148,17 @@
   display: block;
 }
 
-/* Graffiti name images */
+/* Graffiti and descriptions */
 .item-graffiti {
+  position: relative;
+  z-index: 10;
   width: auto;
-  max-width: 208px;
-  max-height: 62px;
+  max-width: 240px; 
+  max-height: 72px;  
   object-fit: contain;
   display: block;
   margin-right: auto;
+  transition: transform 0.3s ease;
 }
 
 .item-graffiti--right {
@@ -119,32 +166,114 @@
   margin-right: 0;
 }
 
+/* ── Individual Item Fine-Tuning ── */
+
+/* Burger Side (Left col) - Aligning left, flush with description */
+/* Burger Side (Left col) - Aligning left, flush with description */
+.item-graffiti--emy {
+  transform: scale(1.35);
+  transform-origin: left center;
+  margin-left: -15px; /* Pull left to align first letter with text */
+  margin-bottom: -22px;
+}
+.item-graffiti--fillet {
+  transform: scale(1.15);
+  transform-origin: left center;
+  margin-left: -22px; /* Pull left further to compensate for Fillet's padding */
+  margin-bottom: -22px;
+}
+.item-graffiti--original {
+  transform: scale(1.1);
+  transform-origin: left center;
+  margin-left: -20px; 
+  margin-bottom: -15px;
+}
+.item-graffiti--pulled {
+  transform: scale(1.1);
+  transform-origin: left center;
+  margin-left: -18px; /* Pull left to align first letter with text */
+  margin-bottom: -22px;
+}
+
+/* Melt Side (Right col) - Aligning right, flush with description end */
+.item-graffiti--coquelet {
+  transform: scale(1.4); /* Increased by ~20% */
+  transform-origin: right center;
+  margin-left: -90px; /* Pulled slightly more to accommodate larger scale */
+  margin-right: -15px; /* Pull right to align end with text */
+  margin-bottom: -22px;
+}
+.item-graffiti--luther {
+  transform: scale(1.2);
+  transform-origin: right center;
+  margin-left: 0; 
+  margin-right: -25px; 
+  margin-bottom: 0;
+}
+
+.item-graffiti--pastrami {
+  transform: scale(1.27); /* Increased by 15% */
+  transform-origin: right center;
+  margin-left: -50px; /* Pulled slightly more for larger scale */
+  margin-right: -10px; /* Pull right to align end with text */
+  margin-bottom: -22px;
+}
+.item-graffiti--as {
+  transform: scale(1.2); /* Reduced by 20% */
+  transform-origin: right center;
+  margin-left: -30px; /* Adjusted margin for the smaller size */
+  margin-right: -15px; /* Pull right to align end with text */
+  margin-bottom: -22px;
+}
+.item-graffiti--philly {
+  transform: scale(1.3);
+  transform-origin: right center;
+  margin-left: -45px;
+  margin-right: -18px; /* Pull right to align end with text */
+  margin-bottom: -22px;
+}
+
 .item-desc {
+  position: relative;
+  z-index: 5;
   color: var(--text-muted);
   font-size: 0.95rem;
   font-style: italic;
   margin: 0;
+  padding-right: 15px; /* Space for the overlap above */
+}
+
+.item-text--right .item-desc {
+  padding-right: 0;
+  padding-left: 15px;
 }
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .menu-mirror {
+  .menu-categories-header { 
+    display: none; 
+  }
+  
+  .menu-row {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 60px;
   }
 
-  .menu-col--right {
-    text-align: left;
+  .burger-side::before, .melt-side::before {
+    content: attr(data-category);
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #B5A028;
+    border-bottom: 2px solid #B5A028;
+    margin-bottom: 20px;
+    text-align: center;
   }
 
-  .menu-item-classic--right {
-    flex-direction: row-reverse;
-    justify-content: flex-start;
-  }
-
-  .item-text--right {
-    text-align: left;
-    align-items: flex-start;
+  .burger-side .item-food-wrap, 
+  .melt-side .item-food-wrap {
+    margin: 0;
+    transform: rotate(0deg);
   }
   
   .section-header h2 {
@@ -154,30 +283,10 @@
 }
 
 @media (max-width: 600px) {
-  .menu-section {
-    padding: 60px 5%;
-  }
-  .section-header {
-    margin-bottom: 40px;
-  }
-  .section-header h2 {
-    font-size: 2.2rem;
-    letter-spacing: 2px;
-  }
-  .category-title {
-    font-size: 1.8rem;
-    letter-spacing: 3px;
-    margin-bottom: 25px;
-  }
-  .item-food-wrap {
-    width: 90px;
-    height: 75px;
-  }
-  .item-graffiti {
-    max-width: 150px;
-    max-height: 45px;
-  }
-  .item-desc {
-    font-size: 0.85rem;
-  }
+  .menu-section { padding: 60px 5%; }
+  .section-header h2 { font-size: 2.2rem; }
+  .category-title { font-size: 1.8rem; }
+  .item-food-wrap { width: 120px; height: 100px; }
+  .item-graffiti { max-width: 150px; max-height: 45px; }
+  .item-desc { font-size: 0.85rem; }
 }

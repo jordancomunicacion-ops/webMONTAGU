@@ -126,6 +126,9 @@
 }
 
 @media (max-width: 400px) {
+  .reservations-container {
+    padding: 24px 16px;
+  }
   .res-header h2 {
     font-size: 1.8rem;
     letter-spacing: 2px;

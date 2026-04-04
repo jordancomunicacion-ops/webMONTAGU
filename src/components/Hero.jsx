@@ -9,8 +9,18 @@ import graffitiReservas from '../assets/Reservas.png';
 import graffitiDelivery from '../assets/Delivery.png';
 import graffitiHistoria from '../assets/Historia.png';
 
+// Carousel dish imports
+import dishPhilly from '../assets/Philly hero.png';
+import dishFillet from '../assets/Fillet hero.png';
+
 const Hero = ({ onDeliveryOpen }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [currentDish, setCurrentDish] = useState(0);
+  
+  const dishes = [
+    { img: dishPhilly, name: 'Philly', style: { clipPath: 'inset(1.5px)' } }, // Clip white edges
+    { img: dishFillet, name: 'Fillet', style: { mixBlendMode: 'multiply' } } // Multiply works well here
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +28,14 @@ const Hero = ({ onDeliveryOpen }) => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Dish rotation timer
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentDish((prev) => (prev + 1) % dishes.length);
+    }, 4000);
+    return () => clearInterval(timer);
   }, []);
 
   const graffitiButtons = [
@@ -36,6 +54,28 @@ const Hero = ({ onDeliveryOpen }) => {
       <AnimatePresence>
         {!scrolled && (
           <div className="graffiti-nav-container">
+            {/* Center Carousel */}
+            <div className="hero-carousel-container">
+              <AnimatePresence mode='wait'>
+                <motion.div
+                  key={currentDish}
+                  className="hero-dish-wrapper"
+                  initial={{ opacity: 0, scale: 1.2, filter: 'blur(10px)' }}
+                  animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                  exit={{ opacity: 0, scale: 0.9, filter: 'blur(5px)' }}
+                  transition={{ duration: 1.2, ease: "easeInOut" }}
+                >
+                  <img 
+                    src={dishes[currentDish].img} 
+                    alt={dishes[currentDish].name} 
+                    className="hero-dish-img"
+                    style={dishes[currentDish].style}
+                  />
+                  <div className="dish-glow"></div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
             {graffitiButtons.map((btn, index) => (
               <motion.a
                 key={btn.id}

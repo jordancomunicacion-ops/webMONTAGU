@@ -11,30 +11,27 @@ import graffitiPastrami from '../assets/Pastrami.png';
 import graffitiAs       from '../assets/As.png';
 import graffitiPhilly   from '../assets/Philly.png';
 
-const menuItems = [
-  {
-    category: 'BURGERS',
-    items: [
-      { name: 'Emy',      graffiti: graffitiEmy,      food: '/food/emy.png',      desc: 'Vaca de raza rústica · gouda · cebolla caramelizada · salsa Emy' },
-      { name: 'Fillet',   graffiti: graffitiFillet,   food: '/food/fillet.png',   desc: 'Vaca de raza rústica · gouda · PX · patata paja · parmentier trufado' },
-      { name: 'Original', graffiti: graffitiOriginal, food: '/food/original.png', desc: 'Vaca de raza rústica · doble gouda · cebolla fresca · bacon · salsa Blecker' },
-      { name: 'Pulled',   graffiti: graffitiPulled,   food: null,                 desc: 'Vaca de raza rústica · pulled pork · gouda · cebolla pochada · cheddar ahumado' },
-    ]
-  },
-  {
-    category: 'MELTS',
-    items: [
-      { name: 'Coquelet', graffiti: graffitiCoquelet, food: null, desc: 'Pollo campero · jamón cocido · gouda · parmentier trufado · pan tostado' },
-      { name: 'Luther',   graffiti: graffitiLuther,   food: null, desc: 'Donut glaseado · doble smash · gouda · bacon · salsa burger' },
-      { name: 'Pastrami', graffiti: graffitiPastrami, food: null, desc: 'Pastrami de vaca · gouda · pepinillos · mostaza suave · pan tostado' },
-      { name: 'As',       graffiti: graffitiAs,       food: null, desc: 'Ternera · tomate · aguacate · mayonesa · pan brioche tostado' },
-      { name: 'Philly',   graffiti: graffitiPhilly,   food: null, desc: 'Ternera · cebolla · queso fundido · pan brioche tostado' },
-    ]
-  }
+const burgerItems = [
+  { name: 'Emy',      graffiti: graffitiEmy,      food: '/food/emy.png',      desc: 'Vaca de raza rústica · gouda · cebolla caramelizada · salsa Emy', itemClass: 'item-graffiti--emy' },
+  { name: 'Fillet',   graffiti: graffitiFillet,   food: '/food/backups/fillet_old.png',   desc: 'Vaca de raza rústica · gouda · PX · patata paja · parmentier trufado', itemClass: 'item-graffiti--fillet' },
+  { name: 'Original', graffiti: graffitiOriginal, food: '/food/original.png', desc: 'Vaca de raza rústica · doble gouda · cebolla fresca · bacon · salsa Blecker', itemClass: 'item-graffiti--original' },
+  { name: 'Pulled',   graffiti: graffitiPulled,   food: '/food/pulled.png',   desc: 'Vaca de raza rústica · pulled pork · gouda · cebolla pochada · cheddar ahumado', itemClass: 'item-graffiti--pulled' },
 ];
 
-const burgers = menuItems[0];
-const melts    = menuItems[1];
+const meltItems = [
+  { name: 'Coquelet', graffiti: graffitiCoquelet, food: '/food/coquelet.png', desc: 'Pollo campero · jamón cocido · gouda · parmentier trufado · pan tostado', itemClass: 'item-graffiti--coquelet' },
+  { name: 'Luther',   graffiti: graffitiLuther,   food: '/food/luther.png',   desc: 'Donut glaseado · doble smash · gouda · bacon · salsa burger', itemClass: 'item-graffiti--luther' },
+  { name: 'Pastrami', graffiti: graffitiPastrami, food: '/food/pastrami.png', desc: 'Pastrami de vaca · gouda · pepinillos · mostaza suave · pan tostado', itemClass: 'item-graffiti--pastrami' },
+  { name: 'As',       graffiti: graffitiAs,       food: '/food/as.png',       desc: 'Ternera · tomate · aguacate · mayonesa · pan brioche tostado', itemClass: 'item-graffiti--as' },
+  { name: 'Philly',   graffiti: graffitiPhilly,   food: '/food/backups/philly_old.png',   desc: 'Ternera · cebolla · queso fundido · pan brioche tostado', itemClass: 'item-graffiti--philly' },
+];
+
+// Combine into rows for the alternating overlap effect
+const maxRows = Math.max(burgerItems.length, meltItems.length);
+const menuRows = Array.from({ length: maxRows }, (_, i) => ({
+  burger: burgerItems[i] || null,
+  melt: meltItems[i] || null
+}));
 
 const Menu = () => {
   return (
@@ -45,51 +42,52 @@ const Menu = () => {
       </div>
 
       <div className="menu-mirror">
-
-        {/* ── BURGERS (izquierda) ── */}
-        <div className="menu-col menu-col--left">
-          <h3 className="category-title">{burgers.category}</h3>
-          <div className="items-list-classic">
-            {burgers.items.map((item) => (
-              <div key={item.name} className="menu-item-classic">
-                {/* texto */}
-                <div className="item-text">
-                  <img src={item.graffiti} alt={item.name} className="item-graffiti" />
-                  <p className="item-desc">{item.desc}</p>
-                </div>
-                {/* foto si existe */}
-                {item.food && (
-                  <div className="item-food-wrap">
-                    <img src={item.food} alt={`Foto ${item.name}`} className="item-food-img" />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+        <div className="menu-categories-header">
+          <h3 className="category-title">BURGERS</h3>
+          <h3 className="category-title">MELTS</h3>
         </div>
 
-        {/* ── MELTS (derecha) ── */}
-        <div className="menu-col menu-col--right">
-          <h3 className="category-title">{melts.category}</h3>
-          <div className="items-list-classic">
-            {melts.items.map((item) => (
-              <div key={item.name} className="menu-item-classic menu-item-classic--right">
-                {/* foto si existe */}
-                {item.food && (
-                  <div className="item-food-wrap">
-                    <img src={item.food} alt={`Foto ${item.name}`} className="item-food-img" />
+        {menuRows.map((row, index) => (
+          <div key={index} className="menu-row">
+            {/* BURGER ITEM */}
+            <div className={`menu-item-container burger-side ${!row.burger ? 'empty' : ''}`} data-category="BURGERS">
+              {row.burger && (
+                <div className="menu-item-classic">
+                  <div className="item-text">
+                    <img 
+                      src={row.burger.graffiti} 
+                      alt={row.burger.name} 
+                      className={`item-graffiti ${row.burger.itemClass || ''}`} 
+                    />
+                    <p className="item-desc">{row.burger.desc}</p>
                   </div>
-                )}
-                {/* texto */}
-                <div className="item-text item-text--right">
-                  <img src={item.graffiti} alt={item.name} className="item-graffiti item-graffiti--right" />
-                  <p className="item-desc">{item.desc}</p>
+                  <div className="item-food-wrap">
+                    <img src={row.burger.food} alt={`Foto ${row.burger.name}`} className="item-food-img" />
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
+              )}
+            </div>
 
+            {/* MELT ITEM */}
+            <div className={`menu-item-container melt-side ${!row.melt ? 'empty' : ''}`} data-category="MELTS">
+              {row.melt && (
+                <div className="menu-item-classic menu-item-classic--right">
+                  <div className="item-food-wrap">
+                    <img src={row.melt.food} alt={`Foto ${row.melt.name}`} className="item-food-img" />
+                  </div>
+                  <div className="item-text item-text--right">
+                    <img 
+                      src={row.melt.graffiti} 
+                      alt={row.melt.name} 
+                      className={`item-graffiti item-graffiti--right ${row.melt.itemClass || ''}`} 
+                    />
+                    <p className="item-desc">{row.melt.desc}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

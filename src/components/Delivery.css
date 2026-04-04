@@ -207,3 +207,39 @@
   height: 100%;
   opacity: 0.08;
 }
+@media (max-width: 768px) {
+  .delivery-section {
+    padding: 80px 5%;
+  }
+  .delivery-title-text {
+    font-size: 3rem;
+    letter-spacing: 4px;
+  }
+  .delivery-modal {
+    padding: 40px 30px 30px;
+  }
+  .modal-title-text {
+    font-size: 2.2rem;
+  }
+  .modal-platform-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .delivery-title-text {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+  .delivery-open-btn {
+    padding: 15px 40px;
+    font-size: 0.9rem;
+  }
+  .delivery-modal {
+    padding: 40px 20px 25px;
+  }
+  .modal-title-text {
+    font-size: 1.8rem;
+  }
+}

@@ -38,7 +38,7 @@ const Navbar = ({ onDeliveryOpen }) => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <a href="#" className="nav-logo">
-          <img src={logoMontagu} alt="Montagu Logo" style={{ height: '84px', width: 'auto' }} />
+          <img src={logoMontagu} alt="Montagu Logo" className="nav-logo-img" />
         </a>
         
         <AnimatePresence>

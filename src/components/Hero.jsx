@@ -12,14 +12,18 @@ import graffitiHistoria from '../assets/Historia.png';
 // Carousel dish imports
 import dishPhilly from '../assets/Philly hero.png';
 import dishFillet from '../assets/Fillet hero.png';
+import dishAs from '../assets/As hero.png';
+import dishPastrami from '../assets/pastrami-removebg-preview.png';
 
 const Hero = ({ onDeliveryOpen }) => {
   const [scrolled, setScrolled] = useState(false);
   const [currentDish, setCurrentDish] = useState(0);
   
   const dishes = [
-    { img: dishPhilly, name: 'Philly', style: { clipPath: 'inset(1.5px)' } }, // Clip white edges
-    { img: dishFillet, name: 'Fillet', style: { mixBlendMode: 'multiply' } } // Multiply works well here
+    { img: dishFillet, name: 'Fillet', style: { mixBlendMode: 'multiply' } },
+    { img: dishAs, name: 'As', style: { mixBlendMode: 'multiply' } },
+    { img: dishPastrami, name: 'Pastrami', style: { mixBlendMode: 'multiply' } },
+    { img: dishPhilly, name: 'Philly', style: { clipPath: 'inset(1.5px)' } }
   ];
 
   useEffect(() => {

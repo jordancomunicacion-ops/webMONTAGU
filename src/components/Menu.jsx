@@ -13,7 +13,7 @@ import graffitiPhilly   from '../assets/Philly.png';
 
 const burgerItems = [
   { name: 'Emy',      graffiti: graffitiEmy,      food: '/food/emy.png',      desc: 'Vaca de raza rústica · gouda · cebolla caramelizada · salsa Emy', itemClass: 'item-graffiti--emy' },
-  { name: 'Fillet',   graffiti: graffitiFillet,   food: '/food/backups/fillet_old.png',   desc: 'Vaca de raza rústica · gouda · PX · patata paja · parmentier trufado', itemClass: 'item-graffiti--fillet' },
+  { name: 'Fillet',   graffiti: graffitiFillet,   food: '/food/fillet.png',   desc: 'Vaca de raza rústica · gouda · PX · patata paja · parmentier trufado', itemClass: 'item-graffiti--fillet' },
   { name: 'Original', graffiti: graffitiOriginal, food: '/food/original.png', desc: 'Vaca de raza rústica · doble gouda · cebolla fresca · bacon · salsa Blecker', itemClass: 'item-graffiti--original' },
   { name: 'Pulled',   graffiti: graffitiPulled,   food: '/food/pulled.png',   desc: 'Vaca de raza rústica · pulled pork · gouda · cebolla pochada · cheddar ahumado', itemClass: 'item-graffiti--pulled' },
 ];
@@ -23,7 +23,7 @@ const meltItems = [
   { name: 'Luther',   graffiti: graffitiLuther,   food: '/food/luther.png',   desc: 'Donut glaseado · doble smash · gouda · bacon · salsa burger', itemClass: 'item-graffiti--luther' },
   { name: 'Pastrami', graffiti: graffitiPastrami, food: '/food/pastrami.png', desc: 'Pastrami de vaca · gouda · pepinillos · mostaza suave · pan tostado', itemClass: 'item-graffiti--pastrami' },
   { name: 'As',       graffiti: graffitiAs,       food: '/food/as.png',       desc: 'Ternera · tomate · aguacate · mayonesa · pan brioche tostado', itemClass: 'item-graffiti--as' },
-  { name: 'Philly',   graffiti: graffitiPhilly,   food: '/food/backups/philly_old.png',   desc: 'Ternera · cebolla · queso fundido · pan brioche tostado', itemClass: 'item-graffiti--philly' },
+  { name: 'Philly',   graffiti: graffitiPhilly,   food: '/food/philly.png',   desc: 'Ternera · cebolla · queso fundido · pan brioche tostado', itemClass: 'item-graffiti--philly' },
 ];
 
 // Combine into rows for the alternating overlap effect

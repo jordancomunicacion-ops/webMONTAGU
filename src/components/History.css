@@ -54,12 +54,13 @@
 }
 
 .narrative p.narrative-script {
-  font-family: 'Pinyon Script', cursive !important;
-  font-size: 2.2rem !important;
-  line-height: 1.4 !important;
-  color: #fff !important;
-  margin-bottom: 5px;
-  letter-spacing: 0.5px;
+  font-family: var(--font-body) !important;
+  font-size: 1.1rem !important;
+  line-height: 1.8 !important;
+  color: var(--text-muted) !important;
+  margin-bottom: 20px;
+  letter-spacing: 0.2px;
+  font-style: italic; /* Consistency with menu descriptions */
 }
 
 .history-footer {
@@ -72,11 +73,13 @@
 
 .signature {
   font-family: 'Mrs Saint Delafield', cursive !important;
-  font-size: 4.5rem !important;
+  font-size: 5rem !important;
   text-transform: none !important;
   letter-spacing: 0 !important;
-  color: #fff !important;
-  text-shadow: none !important;
+  color: var(--primary-gold) !important;
+  text-shadow: 0 0 10px rgba(181, 160, 40, 0.3) !important;
+  margin-top: 30px;
+  z-index: 5;
 }
 
 .badge {
@@ -92,44 +95,23 @@
   justify-content: center;
 }
 
-.portrait-stack {
+.portrait-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
-  width: 400px;
-  height: 500px;
+  margin-top: 100px; /* Push down to avoid slogans pise tanto */
 }
 
-.portrait {
-  position: absolute;
-  border: 10px solid var(--primary-gold);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-  transition: var(--transition-smooth);
+.portrait-frame {
+  width: 420px;
+  height: auto;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.main-p {
-  z-index: 2;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-
-.side-p {
-  z-index: 1;
-  top: 60px;
-  left: 60px;
-  width: 90%;
-  opacity: 0.6;
-  filter: grayscale(1);
-}
-
-.portrait-stack:hover .side-p {
-  top: 80px;
-  left: 80px;
-  opacity: 1;
-  filter: grayscale(0);
-}
-
-.portrait-stack:hover .main-p {
-  transform: translate(-10px, -10px);
+.portrait-container:hover .portrait-frame {
+  transform: scale(1.02);
 }
 
 @media (max-width: 1200px) {
@@ -165,9 +147,8 @@
     gap: 20px;
     margin: 30px auto 0;
   }
-  .portrait-stack {
+  .portrait-frame {
     width: 300px;
-    height: 400px;
     margin: 50px auto 0;
   }
 }
@@ -181,7 +162,7 @@
     letter-spacing: 2px;
   }
   .narrative p.narrative-script {
-    font-size: 1.6rem !important;
+    font-size: 1rem !important;
   }
   .signature {
     font-size: 3.2rem !important;
@@ -189,9 +170,8 @@
   .slogan-container {
     max-width: 300px;
   }
-  .portrait-stack {
+  .portrait-frame {
     width: 260px;
-    height: 340px;
   }
 }
 
@@ -200,7 +180,7 @@
     font-size: 2rem;
   }
   .narrative p.narrative-script {
-    font-size: 1.2rem !important; /* Smaller for mobile */
+    font-size: 0.95rem !important; /* Consistent with menu descriptions on mobile */
   }
   .signature {
     font-size: 2.2rem !important; /* Smaller for mobile */

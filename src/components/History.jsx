@@ -2,8 +2,7 @@ import React from 'react';
 import './History.css';
 
 import sloganGraffiti from '../assets/Slogan tradition.png';
-import noblePortrait from '../assets/montagu_noble_pink_wig_1774863419649.png';
-import padreadaImg from '../assets/uploaded_media_4_1774862966758.jpg';
+import noblePortrait from '../assets/montagu_noble_pink_wig_no_heart.png';
 
 const History = () => {
   return (
@@ -22,15 +21,11 @@ const History = () => {
               Desde la excelencia absoluta del producto, buscamos reinterpretar comidas clásicas y recetas canónicas, presentándolas entre pan y pan como un acto de rebeldía e innovación constante, pero siempre respetando el alma de los grandes platos.
             </p>
           </div>
-          <div className="history-footer">
-            <span className="signature">Montagu</span>
-          </div>
         </div>
-        
         <div className="history-visuals">
-          <div className="portrait-stack">
-            <img src={noblePortrait} alt="The Lord" className="portrait main-p" />
-            <img src={padreadaImg} alt="The Manifesto" className="portrait side-p" />
+          <div className="portrait-container">
+            <img src={noblePortrait} alt="The Lord" className="portrait-frame" />
+            <span className="signature">Montagu</span>
           </div>
         </div>
       </div>

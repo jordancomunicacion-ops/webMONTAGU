@@ -250,24 +250,38 @@
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .menu-categories-header { 
-    display: none; 
-  }
-  
-  .menu-row {
-    grid-template-columns: 1fr;
-    gap: 60px;
+  .menu-mirror {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
   }
 
-  .burger-side::before, .melt-side::before {
-    content: attr(data-category);
-    display: block;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: #B5A028;
-    border-bottom: 2px solid #B5A028;
-    margin-bottom: 20px;
+  .menu-categories-header { 
+    display: contents; /* Allows children to be ordered in the mirror container */
+  }
+
+  /* Category Headers Ordering */
+  .menu-categories-header .category-title {
+    width: 100%;
     text-align: center;
+    justify-self: center !important;
+    margin-bottom: 20px;
+  }
+
+  .menu-categories-header .category-title:first-child { order: 1; }
+  .menu-categories-header .category-title:last-child  { order: 100; margin-top: 40px; }
+
+  .menu-row {
+    display: contents; /* Makes items direct children of mirror for ordering */
+  }
+
+  /* Item Grouping */
+  .burger-side { order: 10; }
+  .melt-side   { order: 110; }
+
+  /* Hide the repetitive category labels */
+  .burger-side::before, .melt-side::before {
+    display: none;
   }
 
   .burger-side .item-food-wrap, 
@@ -283,10 +297,40 @@
 }
 
 @media (max-width: 600px) {
-  .menu-section { padding: 60px 5%; }
+  .menu-section { padding: 60px 4%; }
   .section-header h2 { font-size: 2.2rem; }
   .category-title { font-size: 1.8rem; }
-  .item-food-wrap { width: 120px; height: 100px; }
-  .item-graffiti { max-width: 150px; max-height: 45px; }
-  .item-desc { font-size: 0.85rem; }
+  
+  .menu-item-classic, 
+  .menu-item-classic--right { 
+    flex-direction: column !important; 
+    text-align: center;
+    gap: 10px;
+  }
+
+  .item-text, 
+  .item-text--right {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .item-graffiti, 
+  .item-graffiti--right {
+    margin: 0 auto !important;
+    max-width: 180px; 
+    max-height: 55px; 
+    transform: scale(1.1) !important; /* Reset scales for mobile */
+  }
+
+  .item-food-wrap { 
+    width: 140px; 
+    height: 110px; 
+    margin: 10px 0 !important;
+  }
+  
+  .item-desc { 
+    font-size: 0.9rem; 
+    padding: 0 10px !important;
+  }
 }

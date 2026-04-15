@@ -43,10 +43,10 @@ const Hero = ({ onDeliveryOpen }) => {
   }, []);
 
   const graffitiButtons = [
-    { id: 'carta', img: graffitiCarta, side: 'left', top: 'calc(22% - 120px)', href: '#carta', glow: 'var(--accent-cyan)', rotate: -8 },
-    { id: 'historia', img: graffitiHistoria, side: 'left', top: '53%', href: '#historia', glow: 'var(--accent-pink)', rotate: 5 },
-    { id: 'reservas', img: graffitiReservas, side: 'right', top: 'calc(22% - 120px)', href: '#reservas', glow: 'var(--accent-pink)', rotate: 8 },
-    { id: 'delivery', img: graffitiDelivery, side: 'right', top: '53%', href: null, onClick: onDeliveryOpen, glow: 'var(--accent-yellow)', rotate: -5 },
+    { id: 'carta', img: graffitiCarta, side: 'left', href: '#carta', glow: 'var(--accent-cyan)', rotate: -8 },
+    { id: 'historia', img: graffitiHistoria, side: 'left', href: '#historia', glow: 'var(--accent-pink)', rotate: 5 },
+    { id: 'reservas', img: graffitiReservas, side: 'right', href: '#reservas', glow: 'var(--accent-pink)', rotate: 8 },
+    { id: 'delivery', img: graffitiDelivery, side: 'right', href: null, onClick: onDeliveryOpen, glow: 'var(--accent-yellow)', rotate: -5 },
   ];
 
   return (
@@ -135,9 +135,8 @@ const Hero = ({ onDeliveryOpen }) => {
                 key={btn.id}
                 href={btn.href || undefined}
                 onClick={btn.onClick ? (e) => { e.preventDefault(); btn.onClick(); } : undefined}
-                className={`graffiti-link ${btn.side}`}
+                className={`graffiti-link ${btn.side} ${btn.id}`}
                 style={{ 
-                  top: btn.top, 
                   [btn.side]: '10%',
                   '--glow-color': btn.glow 
                 }}

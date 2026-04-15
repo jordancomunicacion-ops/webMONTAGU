@@ -178,6 +178,16 @@
   z-index: 20; /* On top of carousel */
 }
 
+.graffiti-link.carta,
+.graffiti-link.reservas {
+  top: calc(22% - 120px);
+}
+
+.graffiti-link.historia,
+.graffiti-link.delivery {
+  top: 53%;
+}
+
 .graffiti-link.left {
   left: 10%; /* Adjust to overlap frame edge */
   transform: translateX(-50%) rotate(-5deg);
@@ -317,6 +327,16 @@
   .hero-carousel-container {
     width: 52vw;
     height: 180px;
-    top: calc(44% + 40px);
+    top: calc(44% + 10px); /* Raised 30px from 40px */
+  }
+
+  .graffiti-link.carta,
+  .graffiti-link.reservas {
+    top: calc(22% - 30px); /* Lowered another 30px from -60px */
+  }
+
+  .graffiti-link.historia,
+  .graffiti-link.delivery {
+    top: 53%; /* Reset to base (up 20px from calc(53% + 20px)) */
   }
 }

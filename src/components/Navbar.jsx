@@ -14,7 +14,8 @@ import graffitiCarta from '../assets/Carta.png';
 import graffitiReservas from '../assets/Reservas.png';
 import graffitiDelivery from '../assets/Delivery.png';
 import graffitiHistoria from '../assets/Historia.png';
-import logoMontagu from '../assets/montagu_logo_crown.png';
+// Logo served from /public so the CRM can always access it at /logo-montagu-verde.jpg
+const logoMontagu = '/logo-montagu-verde.jpg';
 
 const Navbar = ({ onDeliveryOpen }) => {
   const [scrolled, setScrolled] = useState(false);
